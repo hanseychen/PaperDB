@@ -1,0 +1,26 @@
+<project name="PaperDB" default="build" basedir=".">
+	<description>
+		Ant build file for PaperDB
+	</description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="src.java" location="src/java"/>
+	<property name="build" location="build"/>
+
+	<target name="init">
+		<!-- create the time stamp -->
+		<tstamp/>
+		<!-- create the build directory structure used by build -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="build" depends="init" description="compile the source">
+		<!-- compile the java code from ${src.java} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}"/>
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- delete the ${build} directory tree -->
+		<delete dir="${build}"/>
+	</target>
+</project>
